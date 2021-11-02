@@ -1,0 +1,118 @@
+#divTabla>table,th,td
+{
+    border: 1.5px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+}
+
+h1
+{
+    text-align: center;
+}
+
+label
+{
+    text-transform: uppercase;
+}
+
+fieldset input
+{
+    justify-content:center;
+    align-items: center; 
+    width :99%
+}
+
+.mensaje
+{
+    opacity: 0.9;
+}
+
+.transaccion
+{
+    height: 10px;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.precio::before 
+{
+    content:"$";
+}
+
+.botones
+{
+    border:none;
+}
+
+.cargando
+{
+    position: relative; 
+    left: 50%;
+    top: -480px;
+    width: 125px;
+    height: 125px;
+    border: 1.5px solid rgba(0, 0, 0, 0.25);
+}
+
+.spinner 
+{
+    position: relative; 
+    left: 25%;
+    top: -17px;
+    transform: translateX(-50%);
+
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left-color: rgb(194, 14, 14);
+
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+  
+    animation: spin 1s ease infinite;
+}
+
+#parrafo
+{
+    position: relative; 
+    top: 90px;
+    right: -30px;
+    text-shadow: 2px 2px 5px red;
+    color: black;
+}
+
+@keyframes spin 
+{
+    0% 
+    {
+      transform: rotate(0deg);
+    }
+  
+    100% 
+{
+      transform: rotate(360deg);
+    }
+}
+
+#btnGuardar
+{
+    background-color:rgb(77, 148, 6);
+    color: white;
+}
+
+#btnEliminar
+{
+    background-color: orangered;
+    color: white;
+}
+
+#btnCancelar
+{
+    background-color:blue;
+    color: white;
+}

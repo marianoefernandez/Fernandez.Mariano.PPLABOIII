@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/scripts.js" type="module"></script>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <title>Lista de Anuncios</title>
+</head>
+<body>
+    <header>
+        <h1>Llena el formulario de alta</h1>
+    </header>
+    <main class="crud">
+        <section class="form-alquiler">
+            <form>
+                <fieldset>
+                    <legend>Informacion del anuncio</legend>
+                    
+                    <label for="txtTitulo">Titulo:</label>
+                    <br>
+                    <input 
+                        type="text" 
+                        name="txtTitulo" 
+                        placeholder="Titulo" 
+                        autocomplete="off"
+                        required placeholder="Ingrese nombre"
+                        oninvalid="this.setCustomValidity('Por favor ingresa un nombre, este parametro no puede quedar vacio')"
+                        oninput="this.setCustomValidity('')"              
+                    />
+                    <br><br>
+                    
+                    <label for="rdoTransaccion">Transaccion:</label>
+                    <br>
+
+                    <label for="rdoTransaccion">Venta</label>
+                    <br>
+
+                    <input 
+                        type="radio" 
+                        name="rdoTransaccion" 
+                        class="transaccion"
+                        value="Venta" 
+                        checked> 
+                    <br>
+                    <label for="rdoTransaccion">Alquiler</label>
+                    <br>
+                    <input 
+                        type="radio" 
+                        name="rdoTransaccion"
+                        class="transaccion"
+                        value="Alquiler"
+                        > 
+                <br><br>
+
+                <label for="txtDescripcion">Descripcion:</label>
+                <br>
+                <input 
+                    type="text" 
+                    name="txtDescripcion" 
+                    placeholder="Descripcion" 
+                    autocomplete="off"
+                    required placeholder="Ingrese Descripcion"
+                    oninvalid="this.setCustomValidity('Por favor ingresa una descripcion, este parametro no puede quedar vacio')"
+                    oninput="this.setCustomValidity('')"              
+                />
+
+                <br><br>
+
+                <label for="txtPrecio">Precio:</label>
+
+                <br>
+
+                <input
+                    type="number" 
+                    name="txtPrecio" 
+                    placeholder="Precio" 
+                    autocomplete="off"
+                    min="1"
+                    required placeholder="Ingrese precio"
+                    oninvalid="this.setCustomValidity('Por favor ingresa un precio mayor a cero, este parametro no puede quedar vacio')"
+                    oninput="this.setCustomValidity('')"
+                />
+
+                <br><br>
+
+                <label for="txtCantBaños">Cantidad de baños:</label>
+
+                <br>
+
+                <input
+                    type="number" 
+                    name="txtCantBaños" 
+                    placeholder="Baños" 
+                    autocomplete="off"
+                    min="1"
+                    required placeholder="Ingrese cantidad de Baños"
+                    oninvalid="this.setCustomValidity('Por favor ingresa una cantidad mayor a cero, este parametro no puede quedar vacio')"
+                    oninput="this.setCustomValidity('')"
+            />
+
+            <br><br>
+
+            <label for="txtCantAutos">Cantidad de Autos:</label>
+
+            <br>
+
+            <input
+                type="number" 
+                name="txtCantAutos" 
+                placeholder="Autos" 
+                autocomplete="off"
+                min="1"
+                required placeholder="Ingrese cantidad de Autos"
+                oninvalid="this.setCustomValidity('Por favor ingresa una cantidad mayor a cero, este parametro no puede quedar vacio')"
+                oninput="this.setCustomValidity('')"
+            />
+            
+            <br><br>
+
+            <label for="txtCantDormitorios">Cantidad de Dormitorios:</label>
+
+            <br>
+
+            <input
+                type="number" 
+                name="txtCantDormitorios" 
+                placeholder="Dormitorios" 
+                autocomplete="off"
+                min="1"
+                required placeholder="Ingrese cantidad de Dormitorios"
+                oninvalid="this.setCustomValidity('Por favor ingresa una cantidad mayor a cero, este parametro no puede quedar vacio')"
+                oninput="this.setCustomValidity('')"
+            />
+
+            <br>
+
+                </fieldset>
+
+                <br>
+                <input type="submit" value="Guardar" id="btnGuardar" class="botones">
+                <input type="hidden" value="Eliminar" id="btnEliminar" class="botones">
+                <input type="hidden" value="Cancelar" id="btnCancelar" class="botones">
+                <input type="hidden" name="txtId">
+            </form>
+        </section>
+
+        <section class="lista-persona">
+            <h2>Listado de Alquileres</h2>
+        </section>
+    </main>
+    <div id="divTabla"></div>
+    <div id="divMensaje"> </div>
+
+    <div id="cargando">
+        <p id="parrafo"></p>
+        <div id="spinner">
+        </div>
+    </div>
+</body>
+</html>
