@@ -1,4 +1,4 @@
-import { Anuncio } from "./anuncio.js";
+import { Anuncio_Auto } from "./anuncio_auto.js";
 import { CrearTabla } from "./tablaDinamica.js";
 
 //#region Contenido  
@@ -49,16 +49,16 @@ function RetornarAnuncio(e)
 
 function CargarFormulario(anuncio) 
 {
-    const {txtId, txtTitulo, rdoTransaccion, txtDescripcion , txtPrecio, txtCantBaños, txtCantAutos, txtCantDormitorios} = $formulario;
+    const {txtId, txtTitulo, rdoTransaccion, txtDescripcion , txtPrecio, txtPuertas, txtKm, txtPotencia} = $formulario;
 
     txtId.value = anuncio.id;
     txtTitulo.value = anuncio.titulo;
     rdoTransaccion.value = anuncio.transaccion;
     txtDescripcion.value = anuncio.descripcion;
     txtPrecio.value = anuncio.precio;
-    txtCantBaños.value = anuncio.cantidadBaños;
-    txtCantAutos.value = anuncio.cantidadAutos;
-    txtCantDormitorios.value = anuncio.cantidadDormitorios;
+    txtPuertas.value = anuncio.cantPuertas;
+    txtKm.value = anuncio.cantKm;
+    txtPotencia.value = anuncio.cantPotencia;
 }
 
 function LimpiarTabla() 
@@ -80,10 +80,11 @@ function AgregarElemento(e)
 {
     e.preventDefault();
 
-    const {txtId, txtTitulo, rdoTransaccion, txtDescripcion , txtPrecio, txtCantBaños, txtCantAutos, txtCantDormitorios} = $formulario;
-    const anuncioAux = new Anuncio(parseInt(txtId.value), txtTitulo.value, rdoTransaccion.value ,txtDescripcion.value, parseFloat(txtPrecio.value), parseInt(txtCantBaños.value) , parseInt(txtCantAutos.value), parseInt(txtCantDormitorios.value));
+    const {txtId, txtTitulo, rdoTransaccion, txtDescripcion , txtPrecio, txtPuertas, txtKm, txtPotencia} = $formulario;
+
+    const anuncioAux = new Anuncio_Auto(parseInt(txtId.value), txtTitulo.value, rdoTransaccion.value ,txtDescripcion.value, parseFloat(txtPrecio.value), parseInt(txtPuertas.value) , parseInt(txtKm.value), parseInt(txtPotencia.value));
     let mensaje = "No se agrego el anuncio debido a que es exactamente igual a otro anuncio de la lista.";
-    Cargando(2000);
+    Cargando(3000);
 
 
     if(txtId.value === "")
@@ -114,7 +115,7 @@ function AgregarElemento(e)
         ActualizarTabla(anuncios);
         $formulario.reset();   
         CancelarSeleccion(e);
-    }, 2000);
+    }, 3000);
 }
 
 function EliminarElemento(e) 
@@ -122,7 +123,7 @@ function EliminarElemento(e)
     e.preventDefault();
     let respuesta = confirm("¿Desea eliminar el anuncio?");
     let mensaje="¡Operacion Cancelada!";
-    Cargando(2000);
+    Cargando(3000);
 
     if (respuesta) 
     {
@@ -142,7 +143,7 @@ function EliminarElemento(e)
         CancelarSeleccion(e);
         ImprimirMensaje(2500,mensaje);
         ActualizarTabla(anuncios);
-    }, 2000);
+    }, 3000);
 
 }
 
@@ -219,7 +220,6 @@ function ModificarUnElemento(lista,elementoModificado,nombreElemento)
         lista.push(elementoModificado);
     
         ActualizarStorage(lista,nombreElemento);
-        ActualizarTabla(lista);
 
         retorno=true;
     }
@@ -327,17 +327,26 @@ function Cargando(tiempo)
     let $divCargando=document.getElementById("cargando");
     let $divSpinner=document.getElementById("spinner");
     let $parrafoCargando=document.getElementById("parrafo");
-
+    let $divFotoSpinner=document.getElementById("spinnerFoto")
+    const $imagen = document.createElement("img");
+    $imagen.setAttribute("src","./img/spinner.png");
+    $imagen.setAttribute("alt","Foto del Spinner");
+    $imagen.setAttribute("class","fotoSpinner");
 
     $divCargando.setAttribute("class","cargando");
     $divSpinner.setAttribute("class","spinner");
-    $parrafoCargando.textContent = "Cargando";
+    $parrafoCargando.textContent = "Cargando...";
+    $divFotoSpinner.appendChild($imagen);
+
+
 
     setTimeout(() => 
     {
         $divCargando.removeAttribute("class");
         $divSpinner.removeAttribute("class");
+        $imagen.removeAttribute("class");
         $parrafoCargando.textContent = "";
+        $divFotoSpinner.removeChild($imagen);
     }, tiempo);
 }
 //#endregion

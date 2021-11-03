@@ -2,16 +2,13 @@ export class Anuncio
 {
     //#region Constructor
 
-    constructor(id,titulo,transaccion,descripcion,precio,cantidadBaños,cantidadAutos,cantidadDormitorios)
+    constructor(id,titulo,transaccion,descripcion,precio)
     {
         this.Id=id;
         this.Titulo=titulo;
         this.Transaccion=transaccion;
         this.Descripcion=descripcion;
         this.Precio=precio;
-        this.CantidadBaños=cantidadBaños;
-        this.CantidadAutos=cantidadAutos;
-        this.CantidadDormitorios=cantidadDormitorios;
     }
 
     //#endregion
@@ -45,21 +42,6 @@ export class Anuncio
         this.precio = value;
     }
 
-    set CantidadBaños(value)
-    {
-        this.cantidadBaños = value;
-    }
-
-    set CantidadAutos(value)
-    {
-        this.cantidadAutos = value;
-    }
-
-    set CantidadDormitorios(value)
-    {
-        this.cantidadDormitorios = value;
-    }
-
     //PROPIEDADES GET
 
     get Id()
@@ -87,21 +69,6 @@ export class Anuncio
         return this.precio;
     }
 
-    get CantidadBaños()
-    {
-        return this.cantidadBaños;
-    }
-
-    get CantidadAutos()
-    {
-        return this.cantidadAutos;
-    }
-
-    get CantidadDormitorios()
-    {
-        return this.cantidadDormitorios;
-    }
-
     //#endregion
 
     //#region Métodos
@@ -111,10 +78,8 @@ export class Anuncio
         return (
             this.Titulo == anuncio.titulo && 
             this.Descripcion == anuncio.descripcion &&
-            this.Precio == anuncio.precio &&
-            this.CantidadBaños == anuncio.cantidadBaños &&
-            this.CantidadAutos == anuncio.cantidadAutos &&
-            this.CantidadDormitorios == anuncio.cantidadDormitorios
+            this.Precio == anuncio.precio && 
+            this.Transaccion == anuncio.transaccion
             );
     }
     //#endregion

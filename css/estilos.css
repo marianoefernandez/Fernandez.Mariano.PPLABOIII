@@ -7,9 +7,53 @@
     align-items: center;
 }
 
+#administracion
+{
+    background-color: rgb(77, 77, 252);
+    margin: 0px;
+    padding: 0px;
+}
+
+.iconos
+{
+    width: 24px;
+    height: 24px;
+}
+
+#LogoPrincipal
+{
+    width: 80px;
+    height: 55px;
+}
+
 h1
 {
     text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-style:italic;
+    font-stretch: condensed;
+}
+
+li>a
+{
+    color: white;
+    text-align: right;   
+    position:relative;
+    justify-content: center;
+    left: 95%;
+}
+
+#bodyIndex 
+{
+    height:665px;
+    background-image:url("http://www.solofondos.com/wp-content/uploads/2016/01/Im%C3%A1genes-de-autos-en-HD-para-fondo-de-pantalla.jpg");
+    background-size: 100%;
+    
+}
+
+h2
+{
+    color: white;
 }
 
 label
@@ -54,7 +98,7 @@ fieldset input
     top: -480px;
     width: 125px;
     height: 125px;
-    border: 1.5px solid rgba(0, 0, 0, 0.25);
+    border: 3px solid rgba(0, 0, 0, 0.7);
 }
 
 .spinner 
@@ -64,7 +108,6 @@ fieldset input
     top: -17px;
     transform: translateX(-50%);
 
-    border: 4px solid rgba(0, 0, 0, 0.1);
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -77,10 +120,16 @@ fieldset input
     animation: spin 1s ease infinite;
 }
 
+.fotoSpinner
+{
+    width: 60px;
+    height: 60px;
+}
+
 #parrafo
 {
     position: relative; 
-    top: 90px;
+    top: 80px;
     right: -30px;
     text-shadow: 2px 2px 5px red;
     color: black;
